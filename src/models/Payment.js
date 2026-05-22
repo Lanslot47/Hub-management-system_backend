@@ -1,24 +1,26 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-
+const mongoose = require("mongoose");
 
 const paymentSchema = new mongoose.Schema({
-    student:{
+    student: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Student"
+        ref: "Student",
     },
-    
-    amount:{
-        type:Number,
+
+    amount: {
+        type: Number,
+        required: true,
     },
-    status:{
-        type:String,
-        enum:["paid", "pending", "failed"]
+
+    status: {
+        type: String,
+        enum: ["paid", "pending", "failed"],
+        required: true,
     },
-    date:{
-        type:Date,
-        required: Date.now()
+
+    date: {
+        type: Date,
+        default: Date.now,
     },
-    
-})
-module.exports = mongoose.model("Payment", paymentSchema)
+});
+
+module.exports = mongoose.model("Payment", paymentSchema);
