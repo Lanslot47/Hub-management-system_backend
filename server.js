@@ -1,9 +1,10 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
 const port = 4000;
 const mongoose = require('mongoose')
-const mongodbUrl = "mongodb://localhost:27017/SMS";
+const mongodbUrl = process.env.mongodbUrl
 const reportRoute = require('./src/routes/report.route')
 const studentRoute = require('./src/routes/student.route')
 const staffRoute = require('./src/routes/staff.route')
