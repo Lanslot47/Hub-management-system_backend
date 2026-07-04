@@ -10,6 +10,7 @@ const studentRoute = require('./src/routes/student.route')
 const staffRoute = require('./src/routes/staff.route')
 const dashboardRoute = require("./src/routes/dashboard.route")
 const paymentRoute = require("./src/routes/payment.route")
+const authRoute = require("./src/routes/auth.route")
 app.use(express.json())
 app.use(cors({
     origin: "*"
@@ -23,6 +24,7 @@ app.use("/api", dashboardRoute)
 app.use('/api', studentRoute)
 app.use('/api', staffRoute)
 app.use('/api', paymentRoute)
+app.use('/api', authRoute)
 
 app.listen(port, () => {
     console.log(`app running on port ${port}`)
